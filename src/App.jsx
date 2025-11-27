@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
 import logo from "./assets/logo.png";
+import eggImage from "./assets/egg-image.png";
+import eggSound from "./assets/iozhik-zhenia.mp3";
 
 const GAMES = [
   {
@@ -437,8 +439,8 @@ function App() {
                 setEasterEggVisible(true);
 
                 // звук (egg-sound.mp3 поклади в public/)
-                const audio = new Audio("/iozhik-zhenia.mp3");
-                audio.volume = 0.3; // ГУЧНІСТЬ 0.0 - 1.0
+                const audio = new Audio(eggSound);
+                audio.volume = 0.3;
                 audio.play().catch(() => {});
 
                 return 0; // після запуску — обнулити
@@ -1121,7 +1123,7 @@ function App() {
 
       {easterEggVisible && (
         <div className="egg-overlay" onClick={() => setEasterEggVisible(false)}>
-          <img src="/egg-image.png" className="egg-image" alt="Easter Egg" />
+          <img src={eggImage} className="egg-image" alt="Easter Egg" />
         </div>
       )}
 
